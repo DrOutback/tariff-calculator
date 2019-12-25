@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    </meta>
+    <title>Final Cost Calculator</title>
+    <script>
+    function finalCost(){
+    const listPrice = document.getElementById('List Price').value;
+    const discountPercent = document.getElementById('Discount').value/100;
+    const tariff = document.getElementById("Tariff").value/100+1;
+    const total = (listPrice - (listPrice*discountPercent))*tariff;
+    const t = total.toFixed(2);
+    const resale = (t/.70).toFixed(2);
+    document.getElementById('Net Price').value = t;
+    document.getElementById('Resale').value = resale;
+    return false
+}
+</script>
+</head>
+<body>
+    <form>
+        <p>List Price $<input autofocus type = "number" id = "List Price" onfocus = "this.value = ''; finalCost()" onkeyup = "finalCost()" value = "0" style="width: 6em" /></p>
+        <p>Discount: <input type = "number" id = "Discount" onfocus = "this.value = ''; finalCost()" onkeyup = "finalCost()" style="width: 4em"/>%</p>
+        <p>Tariff: <input type = "number" id = "Tariff" onfocus = "this.value =''; finalCost()" onkeyup = "finalCost()" value = "3.4" style="width: 4em"/>%</p>
+        <p font style="font-size: 160%;">AFS <u>Net</u> Price: $<output id = "Net Price" value = "0"></p>
+        <p font style="font-size: 160%;">Resale Markup Price: $<output id = "Resale" value = "0"></p>
+    </form>
+    <div id = "Total"></div>
+    <div id = "Resale"></div>
+</body>
+</html>
+
+
+
+
+
